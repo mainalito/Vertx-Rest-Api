@@ -1,5 +1,14 @@
 # Vertx-Rest-Api
 * Implementation of MSSQL-CLIENT-VERTX-API and JDBC-CLIENT FOR SQL SERVER DATABASE
+```java
+   final JDBCClient client = JDBCClient.createShared(vertx, new JsonObject()
+                .put("url", "jdbc:sqlserver://localhost:1433;databaseName=master")
+                .put("driver_class", "com.microsoft.sqlserver.jdbc.SQLServerDriver")
+                .put("max_pool_size", 30)
+                .put("user", "sa")
+                .put("password", "123456789"));
+        JDBCAuth authProvider = JDBCAuth.create(vertx, client);
+```
 * Provides understanding on CRUD APIs and Database connection
 
 # Requirements
