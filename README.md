@@ -1,5 +1,6 @@
 # Vertx-Rest-Api
 * Implementation of MSSQL-CLIENT-VERTX-API and JDBC-CLIENT FOR SQL SERVER DATABASE
+##JDBC-CLIENT FOR SQL SERVER DB CONNECTION
 ```java
    final JDBCClient client = JDBCClient.createShared(vertx, new JsonObject()
                 .put("url", "jdbc:sqlserver://localhost:1433;databaseName=master")
@@ -8,6 +9,22 @@
                 .put("user", "sa")
                 .put("password", "123456789"));
         JDBCAuth authProvider = JDBCAuth.create(vertx, client);
+```
+##MSSQL-CLIENT-VERTX-API DATABASE CONNECTION
+```java
+ MSSQLConnectOptions connectOptions = new MSSQLConnectOptions()
+            .setPort(1433)
+            .setHost("localhost")
+            .setDatabase("Ebook")
+            .setUser("sa")
+            .setPassword("123456789");
+    //pool options
+    PoolOptions poolOptions = new PoolOptions()
+            .setMaxSize(100);
+
+    //client pool
+    MSSQLPool client = MSSQLPool.pool(vertx, connectOptions, poolOptions);
+    
 ```
 * Provides understanding on CRUD APIs and Database connection
 
